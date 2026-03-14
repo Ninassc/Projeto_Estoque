@@ -1,5 +1,14 @@
 from funcoes_database import classificar, calcular_preco_total
 
+#user, senha, setor
+login_funcionario = {
+    "FUN1" : {
+        "user" : "lucassilva",
+        "senha" : "lk123",
+        "setor" : 3
+    }
+}
+
 estoque = {
     "MTR008": {
         "produto": "motor",
@@ -73,7 +82,7 @@ estoque = {
     },
 }
 
-# Cod --> nome_produto, quantidade, total, entrada, saida
+# Cod --> nome_produto, quantidade, preco, total, entrada, saida
 movimentacoes = {
         "ALT003": {
             "produto": "alternador",
@@ -82,6 +91,7 @@ movimentacoes = {
             "total": None,
             "entrada": "2025-01-16",
             "saida": "",
+            "funcionario" :""
         },
     
         "COR010": {
@@ -91,12 +101,14 @@ movimentacoes = {
             "total": None,
             "entrada": "2025-01-16",
             "saida": "",
+            "funcionario" :""
         }
 }
 
 classificar(estoque)
 calcular_preco_total(movimentacoes)
 
-print(movimentacoes)
+# print(movimentacoes)
+print(login_funcionario.values())
 
 
