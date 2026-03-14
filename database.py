@@ -5,7 +5,7 @@ login_funcionario = {
     "FUN1" : {
         "user" : "lucassilva",
         "senha" : "lk123",
-        "setor" : 3
+        "setor" : "3"
     }
 }
 

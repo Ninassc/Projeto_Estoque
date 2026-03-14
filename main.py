@@ -18,12 +18,12 @@ def mostrar_estoque_total():
 
     return
 
-
-def main():
+def entrar():
     user = str(input("USER do Funcinário: ")).lower()
 
     for users in login_funcionario.values():
         if users["user"] == user:
+
             senha = str(input("SENHA do Funcinário: ")).lower()
             if users["senha"] == senha: 
                     setor = str(
@@ -41,11 +41,22 @@ def main():
                             "Digite o número do seu setor: "
                         )
                     )
-                    if setor == "1":
-                        mostrar_estoque_total()
+
+                    if users["setor"] == setor:
+                       return setor
+                    else: 
+                        print("O user não pertence a esse setor!")
             else:
                 print("SENHA INCORRETA")
         else:
             print(f"User : {user} indisponível no momento!")
+    return
+
+
+def main():
+    setor = entrar()
+    
+    if setor != None:
+        mostrar_estoque_total()
 
 main()
