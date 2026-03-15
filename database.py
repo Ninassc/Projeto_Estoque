@@ -84,7 +84,8 @@ estoque = {
 
 # Cod --> nome_produto, quantidade, preco, total, entrada, saida
 movimentacoes = {
-        "ALT003": {
+        "MOV1": {
+            "codigo_produto" : "ALT003",
             "produto": "alternador",
             "quantidade": 2,
             "preco": 500.00,
@@ -94,7 +95,8 @@ movimentacoes = {
             "funcionario" :""
         },
     
-        "COR010": {
+        "MOV2": {
+            "codigo_produto" : "COR010",
             "produto": "correia dentada",
             "quantidade": 1,
             "preco": 220.00,
