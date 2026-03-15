@@ -5,75 +5,75 @@ login_funcionario = {
     "FUN1" : {
         "user" : "lucassilva",
         "senha" : "lk123",
-        "setor" : "3"
+        "setor" : "9"
     }
 }
 
 estoque = {
-    "MTR008": {
+    "MTR1": {
         "produto": "motor",
         "quantidade_estoque": 10,
         "preco": 2000.00,
         "tamanho": "60cm",
         "classificacao" : None
     },
-    "RAD002": {
+    "RAD2": {
         "produto": "radiador",
         "quantidade_estoque": 5,
         "preco": 350.00,
         "tamanho": "50cm",
         "classificacao" : None
     },
-    "ALT003": {
+    "ALT3": {
         "produto": "alternador",
         "quantidade_estoque": 50,
         "preco": 500.00,
         "tamanho": "25cm",
         "classificacao" : None
     },
-    "BAT004": {
+    "BAT4": {
         "produto": "bateria",
         "quantidade_estoque": 3,
         "preco": 450.00,
         "tamanho": "30cm",
         "classificacao" : None
     },
-    "EMB005": {
+    "EMB5": {
         "produto": "embreagem",
         "quantidade_estoque": 20,
         "preco": 700.00,
         "tamanho": "28cm",
         "classificacao" : None
     },
-    "AMT006": {
+    "AMT6": {
         "produto": "amortecedor",
         "quantidade_estoque": 67,
         "preco": 300.00,
         "tamanho": "45cm",
         "classificacao" : None
     },
-    "VEL007": {
+    "VEL7": {
         "produto": "velas de ignicao",
         "quantidade_estoque": 2,
         "preco": 120.00,
         "tamanho": "7cm",
         "classificacao" : None
     },
-    "FIL008": {
+    "FIL8": {
         "produto": "filtro de ar",
         "quantidade_estoque": 34,
         "preco": 80.00,
         "tamanho": "20cm",
         "classificacao" : None
     },
-    "PAS009": {
+    "PAS9": {
         "produto": "pastilha de freio",
         "quantidade_estoque": 0,
         "preco": 150.00,
         "tamanho": "15cm",
         "classificacao" : None
     },
-    "COR010": {
+    "COR10": {
         "produto": "correia dentada",
         "quantidade_estoque": 1,
         "preco": 220.00,

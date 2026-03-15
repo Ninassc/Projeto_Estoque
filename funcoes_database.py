@@ -4,7 +4,7 @@ def calcular_preco_total(movimentacoes):
 
 def classificar(estoque):
     for itens in estoque.values():
-        tamanho = float(itens["tamanho"].replace("cm", ".0"))
+        tamanho = float(itens["tamanho"].replace("cm", ""))
         if tamanho <= 15:
             itens["classificacao"] = "P"
         elif tamanho > 15 and tamanho < 40:
