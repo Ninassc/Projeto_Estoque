@@ -1,5 +1,41 @@
+from funcoes_database import calcular_preco_total, classificar
 from database import movimentacoes, estoque, login_funcionario
 from datetime import datetime
+
+
+def cadastrar_estoque(estoque, movimentacoes, setor, user):
+    if setor == "1" or setor == "2" or setor == "9":
+        adicionar = input("Deseja adicionar um novo produto ao estoque? (S/N)").lower()
+
+        if adicionar == "s" or adicionar == "sim":
+            produto_adicionar = input("Nome do Produto: ").lower()
+            quantidade = int(input("Quantidade: "))
+            preco = float(input("Preço: "))
+            tamanho = input("Tamaho (Ex:20cm): ")
+            num_codigo_produto = len(estoque) + 1
+            codigo_produto = f"{produto_adicionar[0:3].upper()}{num_codigo_produto}"
+            saida = None
+            entrada = str(datetime.now().strftime("%Y-%m-%d"))
+
+            estoque[codigo_produto] = {
+                "produto": produto_adicionar,
+                "quantidade_estoque": quantidade,
+                "preco": preco,
+                "tamanho": tamanho,
+                "classificacao": None,
+            }
+            registrar_movimentacoes(
+                movimentacoes,
+                codigo_produto,
+                produto_adicionar,
+                quantidade,
+                preco,
+                user,
+                entrada,
+                saida,
+            )
+
+            classificar(estoque)
 
 
 def mostrar_estoque_total(estoque):
@@ -39,7 +75,7 @@ def mostrar_movimentacoes(movimentacoes):
 
 
 def registrar_movimentacoes(
-    movimentacoes, codigo_produto, produto, quantidade, valor, user, entrada, saida
+    movimentacoes, codigo_produto, produto, quantidade, preco, user, entrada, saida
 ):
     num_movimentacao = len(movimentacoes) + 1
     cod_movimentacao = f"MOV{num_movimentacao}"
@@ -48,12 +84,14 @@ def registrar_movimentacoes(
         "codigo_produto": codigo_produto,
         "produto": produto,
         "quantidade": quantidade,
-        "preco": valor["preco"],
+        "preco": preco,
         "total": None,
         "entrada": entrada,
         "saida": saida,
         "funcionario": user,
     }
+
+    calcular_preco_total(movimentacoes)
 
     return
 
@@ -72,11 +110,19 @@ def registrar_saida(estoque, movimentacoes, user, setor):
             if valor["quantidade_estoque"] - quantidade >= 0:
 
                 valor["quantidade_estoque"] -= quantidade
+                preco = valor["preco"]
                 saida = str(datetime.now().strftime("%Y-%m-%d"))
                 entrada = None
 
                 registrar_movimentacoes(
-                    movimentacoes, codigo_produto, produto, quantidade, valor, user, entrada, saida
+                    movimentacoes,
+                    codigo_produto,
+                    produto,
+                    quantidade,
+                    preco,
+                    user,
+                    entrada,
+                    saida,
                 )
             break
 
@@ -95,40 +141,24 @@ def registrar_entrada(estoque, movimentacoes, user, setor):
                 produto = valor["produto"]
 
             valor["quantidade_estoque"] += quantidade
+            preco = valor["preco"]
             saida = None
             entrada = str(datetime.now().strftime("%Y-%m-%d"))
             registrar_movimentacoes(
-                movimentacoes, codigo_produto, produto, quantidade, valor, user, entrada, saida
+                movimentacoes,
+                codigo_produto,
+                produto,
+                quantidade,
+                preco,
+                user,
+                entrada,
+                saida,
             )
 
             break
-        else:
-            print("PRODUTO não existe no estoque!")
-            if setor == "1" or setor == "2" or setor == "9":
-                adicionar = input(
-                    "Deseja adicionar um novo produto ao estoque? (S/N)"
-                ).lower()
-
-                if adicionar == "s" or adicionar == "sim":
-                    produto_adicionar = input("Nome do Produto: ").lower()
-                    quantidade = int(input("Quantidade: "))
-                    preco = float(input("Preço: "))
-                    tamanho = input("Tamaho (Ex:20cm): ")
-                    num_codigo_produto = len(estoque) + 1
-                    codigo_produto = f"{produto[0:3].upper()}{num_codigo_produto}"
-                    saida = None
-                    entrada = str(datetime.now().strftime("%Y-%m-%d"))
-
-                    estoque[codigo_produto] = {
-                        "produto": produto_adicionar,
-                        "quantidade_estoque": quantidade,
-                        "preco": preco,
-                        "tamanho": tamanho,
-                        "classificacao": None,
-                    }
-                    registrar_movimentacoes(
-                        movimentacoes, codigo_produto, produto, quantidade, valor, user, entrada, saida
-                    )
+    else:
+        print("PRODUTO não existe no estoque!")
+        cadastrar_estoque(estoque, movimentacoes, setor, user)
 
     return
 
@@ -183,8 +213,9 @@ def main():
                     print("O user não pertence a esse setor!")
             else:
                 print("SENHA INCORRETA")
-        else:
-            print(f"User : {user} indisponível no momento!")
+            break
+    else:
+        print(f"User : {user} indisponível no momento!")
 
 
 main()
