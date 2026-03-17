@@ -58,7 +58,7 @@ def registrar_movimentacoes(
     return
 
 
-def registrar_saida(estoque, movimentacoes, user):
+def registrar_saida(estoque, movimentacoes, user, setor):
     produto = input("CÓDIGO/PRODUTO: ")
     quantidade = int(input("Quantidade: "))
 

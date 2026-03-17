@@ -6,6 +6,36 @@ login_funcionario = {
         "user" : "lucassilva",
         "senha" : "lk123",
         "setor" : "9"
+    },
+    "FUN2" : {
+        "user" : "mariaclara",
+        "senha" : "mc456",
+        "setor" : "2"
+    },
+    "FUN3" : {
+        "user" : "joaosouza",
+        "senha" : "js789",
+        "setor" : "5"
+    },
+    "FUN4" : {
+        "user" : "fernandocosta",
+        "senha" : "fc123",
+        "setor" : "1"
+    },
+    "FUN5" : {
+        "user" : "camilalima",
+        "senha" : "cl456",
+        "setor" : "3"
+    },
+    "FUN6" : {
+        "user" : "rafaelalves",
+        "senha" : "ra789",
+        "setor" : "7"
+    },
+    "FUN7" : {
+        "user" : "patriciasilva",
+        "senha" : "ps321",
+        "setor" : "4"
     }
 }
 
@@ -78,6 +108,41 @@ estoque = {
         "quantidade_estoque": 1,
         "preco": 220.00,
         "tamanho": "90cm",
+        "classificacao" : None
+    },
+    "PNE11": {
+        "produto": "pneu",
+        "quantidade_estoque": 40,
+        "preco": 350.00,
+        "tamanho": "38cm",
+        "classificacao" : None
+    },
+    "BOM12": {
+        "produto": "bomba d'agua",
+        "quantidade_estoque": 15,
+        "preco": 250.00,
+        "tamanho": "15cm",
+        "classificacao" : None
+    },
+    "DIS13": {
+        "produto": "disco de freio",
+        "quantidade_estoque": 20,
+        "preco": 180.00,
+        "tamanho": "25cm",
+        "classificacao" : None
+    },
+    "OLE14": {
+        "produto": "oleo de motor",
+        "quantidade_estoque": 50,
+        "preco": 45.00,
+        "tamanho": "20cm",
+        "classificacao" : None
+    },
+    "FAR15": {
+        "produto": "farol",
+        "quantidade_estoque": 12,
+        "preco": 300.00,
+        "tamanho": "40cm",
         "classificacao" : None
     },
 }
