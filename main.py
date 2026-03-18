@@ -12,6 +12,12 @@ def cadastrar_estoque(estoque, movimentacoes, setor, user):
             quantidade = int(input("Quantidade: "))
             preco = float(input("Preço: "))
             tamanho = input("Tamaho (Ex:20cm): ")
+            tipo = input("Tipo: ")
+            parte = input("Parte: ")
+            veiculos = input("Veiculos: ")
+            veiculos = veiculos.split(",")
+            fabricante = input("Fabricante: ")
+            data_fabricacao = input("Data de Fabricacao: ")
             num_codigo_produto = len(estoque) + 1
             codigo_produto = f"{produto_adicionar[0:3].upper()}{num_codigo_produto}"
             saida = None
@@ -23,6 +29,11 @@ def cadastrar_estoque(estoque, movimentacoes, setor, user):
                 "preco": preco,
                 "tamanho": tamanho,
                 "classificacao": None,
+                "tipo": tipo,
+                "parte": parte,
+                "veiculos": veiculos,
+                "fabricante": fabricante,
+                "data_fabricacao": data_fabricacao,
             }
             registrar_movimentacoes(
                 movimentacoes,

@@ -1,42 +1,14 @@
 from funcoes_database import classificar, calcular_preco_total
 
-#user, senha, setor
+# user, senha, setor
 login_funcionario = {
-    "FUN1" : {
-        "user" : "lucassilva",
-        "senha" : "lk123",
-        "setor" : "9"
-    },
-    "FUN2" : {
-        "user" : "mariaclara",
-        "senha" : "mc456",
-        "setor" : "2"
-    },
-    "FUN3" : {
-        "user" : "joaosouza",
-        "senha" : "js789",
-        "setor" : "5"
-    },
-    "FUN4" : {
-        "user" : "fernandocosta",
-        "senha" : "fc123",
-        "setor" : "1"
-    },
-    "FUN5" : {
-        "user" : "camilalima",
-        "senha" : "cl456",
-        "setor" : "3"
-    },
-    "FUN6" : {
-        "user" : "rafaelalves",
-        "senha" : "ra789",
-        "setor" : "7"
-    },
-    "FUN7" : {
-        "user" : "patriciasilva",
-        "senha" : "ps321",
-        "setor" : "4"
-    }
+    "FUN1": {"user": "lucassilva", "senha": "lk123", "setor": "9"},
+    "FUN2": {"user": "mariaclara", "senha": "mc456", "setor": "2"},
+    "FUN3": {"user": "joaosouza", "senha": "js789", "setor": "5"},
+    "FUN4": {"user": "fernandocosta", "senha": "fc123", "setor": "1"},
+    "FUN5": {"user": "camilalima", "senha": "cl456", "setor": "3"},
+    "FUN6": {"user": "rafaelalves", "senha": "ra789", "setor": "7"},
+    "FUN7": {"user": "patriciasilva", "senha": "ps321", "setor": "4"},
 }
 
 estoque = {
@@ -45,131 +17,326 @@ estoque = {
         "quantidade_estoque": 10,
         "preco": 2000.00,
         "tamanho": "60cm",
-        "classificacao" : None
+        "classificacao": None,
+        "tipo": "mecanica",
+        "parte": "motor",
+        "veiculos": ["Mustang", "Voyage", "Porsche"],
+        "fabricante": "TitanDrive Industries",
+        "data_fabricacao": "2026-01-05",
     },
     "RAD2": {
         "produto": "radiador",
         "quantidade_estoque": 5,
         "preco": 350.00,
         "tamanho": "50cm",
-        "classificacao" : None
+        "classificacao": None,
+        "tipo": "mecanica",
+        "parte": "arrefecimento",
+        "veiculos": ["Fusca", "Kombi", "Voyage"],
+        "fabricante": "NovaMotion Parts",
+        "data_fabricacao": "2026-01-06",
     },
     "ALT3": {
         "produto": "alternador",
         "quantidade_estoque": 50,
         "preco": 500.00,
         "tamanho": "25cm",
-        "classificacao" : None
+        "classificacao": None,
+        "tipo": "eletronica",
+        "parte": "gerador",
+        "veiculos": ["Voyage", "Mustang"],
+        "fabricante": "AutoLux Components",
+        "data_fabricacao": "2026-01-07",
     },
     "BAT4": {
         "produto": "bateria",
         "quantidade_estoque": 3,
         "preco": 450.00,
         "tamanho": "30cm",
-        "classificacao" : None
+        "classificacao": None,
+        "tipo": "eletronica",
+        "parte": "energia",
+        "veiculos": ["Fusca", "Voyage", "Kombi"],
+        "fabricante": "AutoLux Components",
+        "data_fabricacao": "2026-01-08",
     },
     "EMB5": {
         "produto": "embreagem",
         "quantidade_estoque": 20,
         "preco": 700.00,
         "tamanho": "28cm",
-        "classificacao" : None
+        "classificacao": None,
+        "tipo": "mecanica",
+        "parte": "transmissao",
+        "veiculos": ["Mustang", "Voyage"],
+        "fabricante": "TitanDrive Industries",
+        "data_fabricacao": "2026-01-09",
     },
     "AMT6": {
         "produto": "amortecedor",
         "quantidade_estoque": 67,
         "preco": 300.00,
         "tamanho": "45cm",
-        "classificacao" : None
+        "classificacao": None,
+        "tipo": "mecanica",
+        "parte": "suspensao",
+        "veiculos": ["Kombi", "Fusca", "Voyage"],
+        "fabricante": "TitanDrive Industries",
+        "data_fabricacao": "2026-01-10",
     },
     "VEL7": {
         "produto": "velas de ignicao",
         "quantidade_estoque": 2,
         "preco": 120.00,
         "tamanho": "7cm",
-        "classificacao" : None
+        "classificacao": None,
+        "tipo": "mecanica",
+        "parte": "ignicao",
+        "veiculos": ["Fusca", "Kombi"],
+        "fabricante": "AutoLux Components",
+        "data_fabricacao": "2026-01-11",
     },
     "FIL8": {
         "produto": "filtro de ar",
         "quantidade_estoque": 34,
         "preco": 80.00,
         "tamanho": "20cm",
-        "classificacao" : None
+        "classificacao": None,
+        "tipo": "mecanica",
+        "parte": "filtragem",
+        "veiculos": ["Fusca", "Voyage", "Kombi"],
+        "fabricante": "NovaMotion Parts",
+        "data_fabricacao": "2026-01-12",
     },
     "PAS9": {
         "produto": "pastilha de freio",
         "quantidade_estoque": 0,
         "preco": 150.00,
         "tamanho": "15cm",
-        "classificacao" : None
+        "classificacao": None,
+        "tipo": "mecanica",
+        "parte": "freio",
+        "veiculos": ["Mustang", "Voyage"],
+        "fabricante": "TitanDrive Industries",
+        "data_fabricacao": "2026-01-13",
     },
     "COR10": {
         "produto": "correia dentada",
         "quantidade_estoque": 1,
         "preco": 220.00,
         "tamanho": "90cm",
-        "classificacao" : None
+        "classificacao": None,
+        "tipo": "mecanica",
+        "parte": "motor",
+        "veiculos": ["Fusca", "Voyage"],
+        "fabricante": "TitanDrive Industries",
+        "data_fabricacao": "2026-01-14",
     },
     "PNE11": {
         "produto": "pneu",
         "quantidade_estoque": 40,
         "preco": 350.00,
         "tamanho": "38cm",
-        "classificacao" : None
+        "classificacao": None,
+        "tipo": "externo",
+        "parte": "rodas",
+        "veiculos": ["Mustang", "Voyage", "Fusca"],
+        "fabricante": "TitanDrive Industries",
+        "data_fabricacao": "2026-01-15",
     },
     "BOM12": {
         "produto": "bomba d'agua",
         "quantidade_estoque": 15,
         "preco": 250.00,
         "tamanho": "15cm",
-        "classificacao" : None
+        "classificacao": None,
+        "tipo": "mecanica",
+        "parte": "arrefecimento",
+        "veiculos": ["Kombi", "Voyage"],
+        "fabricante": "NovaMotion Parts",
+        "data_fabricacao": "2026-01-16",
     },
     "DIS13": {
         "produto": "disco de freio",
         "quantidade_estoque": 20,
         "preco": 180.00,
         "tamanho": "25cm",
-        "classificacao" : None
+        "classificacao": None,
+        "tipo": "mecanica",
+        "parte": "freio",
+        "veiculos": ["Mustang", "Voyage"],
+        "fabricante": "TitanDrive Industries",
+        "data_fabricacao": "2026-01-17",
     },
     "OLE14": {
         "produto": "oleo de motor",
         "quantidade_estoque": 50,
         "preco": 45.00,
         "tamanho": "20cm",
-        "classificacao" : None
+        "classificacao": None,
+        "tipo": "mecanica",
+        "parte": "lubrificacao",
+        "veiculos": ["Todos"],
+        "fabricante": "AutoLux Components",
+        "data_fabricacao": "2026-01-18",
     },
     "FAR15": {
         "produto": "farol",
         "quantidade_estoque": 12,
         "preco": 300.00,
         "tamanho": "40cm",
-        "classificacao" : None
+        "classificacao": None,
+        "tipo": "iluminacao",
+        "parte": "frontal",
+        "veiculos": ["Fusca", "Voyage", "Mustang"],
+        "fabricante": "NovaMotion Parts",
+        "data_fabricacao": "2026-01-19",
+    },
+    "VEC16": {
+        "produto": "volante esportivo couro",
+        "quantidade_estoque": 0,
+        "preco": 900.0,
+        "tamanho": "35cm",
+        "classificacao": None,
+        "tipo": "interior",
+        "parte": "direcao",
+        "veiculos": ["Porsche", "Mustang"],
+        "fabricante": "AutoLux Components",
+        "data_fabricacao": "2026-01-10",
+    },
+    "BPC17": {
+        "produto": "banco premium couro",
+        "quantidade_estoque": 0,
+        "preco": 1800.0,
+        "tamanho": "50cm",
+        "classificacao": None,
+        "tipo": "interior",
+        "parte": "banco",
+        "veiculos": ["Porsche", "Mustang", "Voyage"],
+        "fabricante": "AutoLux Components",
+        "data_fabricacao": "2026-01-12",
+    },
+    "RBT18": {
+        "produto": "radio bluetooth touch",
+        "quantidade_estoque": 0,
+        "preco": 750.0,
+        "tamanho": "20cm",
+        "classificacao": None,
+        "tipo": "eletronica",
+        "parte": "radio",
+        "veiculos": ["Fusca", "Kombi", "Voyage"],
+        "fabricante": "NovaMotion Parts",
+        "data_fabricacao": "2026-01-15",
+    },
+    "PDE19": {
+        "produto": "painel digital esportivo",
+        "quantidade_estoque": 0,
+        "preco": 1200.0,
+        "tamanho": "30cm",
+        "classificacao": None,
+        "tipo": "eletronica",
+        "parte": "painel",
+        "veiculos": ["Porsche", "Mustang"],
+        "fabricante": "NovaMotion Parts",
+        "data_fabricacao": "2026-01-16",
+    },
+    "RCR20": {
+        "produto": "retrovisor cromado",
+        "quantidade_estoque": 0,
+        "preco": 250.0,
+        "tamanho": "20cm",
+        "classificacao": None,
+        "tipo": "externo",
+        "parte": "carroceria",
+        "veiculos": ["Fusca", "Kombi"],
+        "fabricante": "TitanDrive Industries",
+        "data_fabricacao": "2026-01-17",
+    },
+    "KSE21": {
+        "produto": "kit suspensão esportiva",
+        "quantidade_estoque": 0,
+        "preco": 1500.0,
+        "tamanho": "45cm",
+        "classificacao": None,
+        "tipo": "mecanica",
+        "parte": "suspensao",
+        "veiculos": ["Mustang", "Porsche"],
+        "fabricante": "TitanDrive Industries",
+        "data_fabricacao": "2026-01-18",
+    },
+    "FLM22": {
+        "produto": "farol LED moderno",
+        "quantidade_estoque": 0,
+        "preco": 600.0,
+        "tamanho": "40cm",
+        "classificacao": None,
+        "tipo": "iluminacao",
+        "parte": "frontal",
+        "veiculos": ["Voyage", "Fusca"],
+        "fabricante": "NovaMotion Parts",
+        "data_fabricacao": "2026-01-19",
+    },
+    "RAE23": {
+        "produto": "rodas esportivas aro18",
+        "quantidade_estoque": 0,
+        "preco": 2000.0,
+        "tamanho": "45cm",
+        "classificacao": None,
+        "tipo": "externo",
+        "parte": "rodas",
+        "veiculos": ["Mustang", "Porsche"],
+        "fabricante": "TitanDrive Industries",
+        "data_fabricacao": "2026-01-20",
+    },
+    "RRC24": {
+        "produto": "radio retro classico",
+        "quantidade_estoque": 0,
+        "preco": 650.0,
+        "tamanho": "20cm",
+        "classificacao": None,
+        "tipo": "eletronica",
+        "parte": "radio",
+        "veiculos": ["Fusca", "Kombi"],
+        "fabricante": "AutoLux Components",
+        "data_fabricacao": "2026-01-21",
+    },
+    "VMC25": {
+        "produto": "volante madeira classico",
+        "quantidade_estoque": 0,
+        "preco": 850.0,
+        "tamanho": "35cm",
+        "classificacao": None,
+        "tipo": "interior",
+        "parte": "direcao",
+        "veiculos": ["Fusca", "Kombi"],
+        "fabricante": "AutoLux Components",
+        "data_fabricacao": "2026-01-22",
     },
 }
 
+
 # Cod --> nome_produto, quantidade, preco, total, entrada, saida
 movimentacoes = {
-        "MOV1": {
-            "codigo_produto" : "ALT003",
-            "produto": "alternador",
-            "quantidade": 2,
-            "preco": 500.00,
-            "total": None,
-            "entrada": "2025-01-16",
-            "saida": "",
-            "funcionario" :""
-        },
-    
-        "MOV2": {
-            "codigo_produto" : "COR010",
-            "produto": "correia dentada",
-            "quantidade": 1,
-            "preco": 220.00,
-            "total": None,
-            "entrada": "2025-01-16",
-            "saida": "",
-            "funcionario" :""
-        }
+    "MOV1": {
+        "codigo_produto": "ALT003",
+        "produto": "alternador",
+        "quantidade": 2,
+        "preco": 500.00,
+        "total": None,
+        "entrada": "2025-01-16",
+        "saida": "",
+        "funcionario": "",
+    },
+    "MOV2": {
+        "codigo_produto": "COR010",
+        "produto": "correia dentada",
+        "quantidade": 1,
+        "preco": 220.00,
+        "total": None,
+        "entrada": "2025-01-16",
+        "saida": "",
+        "funcionario": "",
+    },
 }
 
 classificar(estoque)
@@ -177,5 +344,3 @@ calcular_preco_total(movimentacoes)
 
 # print(movimentacoes)
 print(login_funcionario.values())
-
-
