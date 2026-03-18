@@ -175,23 +175,28 @@ def registrar_entrada(estoque, movimentacoes, user, setor):
 
 
 def menu(estoque, movimentacoes, user, setor):
-    acao = input(
-        "1 - Registrar saída\n"
-        "2 - Registrar entrada de produto\n"
-        "3 - Verificar preço de um produto\n"
-        "4 - Sair\n"
-        "Digite a opção desejada: "
-    )
+    
+    while True: 
+        acao = input(
+            "1 - Registrar saída\n"
+            "2 - Registrar entrada de produto\n"
+            "3 - Verificar preço de um produto\n"
+            "4 - Sair\n"
+            "Digite a opção desejada: "
+        )
+        
+        if acao == "1":
+            registrar_saida(estoque, movimentacoes, user, setor)
+            mostrar_estoque_total(estoque)
+            mostrar_movimentacoes(movimentacoes)
 
-    if acao == "1":
-        registrar_saida(estoque, movimentacoes, user, setor)
-        mostrar_estoque_total(estoque)
-        mostrar_movimentacoes(movimentacoes)
-
-    if acao == "2":
-        registrar_entrada(estoque, movimentacoes, user, setor)
-        mostrar_estoque_total(estoque)
-        mostrar_movimentacoes(movimentacoes)
+        if acao == "2":
+            registrar_entrada(estoque, movimentacoes, user, setor)
+            mostrar_estoque_total(estoque)
+            mostrar_movimentacoes(movimentacoes)
+        
+        if acao == "4":
+            break
 
 
 def main():
