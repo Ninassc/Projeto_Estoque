@@ -1,7 +1,22 @@
 from funcoes_database import calcular_preco_total, classificar
-from database import movimentacoes, estoque, login_funcionario
+from lerbanco import ler_banco, salvar_banco
 from datetime import datetime
 
+dados_banco = ler_banco()
+estoque = dados_banco.get("estoque", {})
+movimentacoes = dados_banco.get("movimentacoes", {})
+login_funcionario = dados_banco.get("login_funcionario", {})
+
+classificar(estoque)
+calcular_preco_total(movimentacoes)
+
+def salvar():
+    dados_atualizados = {
+        "login_funcionario": login_funcionario,
+        "estoque": estoque,
+        "movimentacoes": movimentacoes
+    }
+    salvar_banco(dados_atualizados)
 
 def cadastrar_estoque(estoque, movimentacoes, setor, user):
     if setor == "1" or setor == "2" or setor == "9":
@@ -47,6 +62,8 @@ def cadastrar_estoque(estoque, movimentacoes, setor, user):
             )
 
             classificar(estoque)
+            salvar()
+
 
 
 def mostrar_estoque_total(estoque):
@@ -135,6 +152,7 @@ def registrar_saida(estoque, movimentacoes, user, setor):
                     entrada,
                     saida,
                 )
+            salvar()
             break
 
     return
@@ -165,7 +183,7 @@ def registrar_entrada(estoque, movimentacoes, user, setor):
                 entrada,
                 saida,
             )
-
+            salvar()
             break
     else:
         print("PRODUTO não existe no estoque!")
