@@ -174,10 +174,22 @@ def registrar_entrada(estoque, movimentacoes, user, setor):
     return
 
 
+def verificar_preco(estoque):
+    produto = input("CÓDIGO/PRODUTO: ").strip()
+    for item, valor in estoque.items():
+        if item == produto or valor["produto"] == produto:
+            print(f"Preço do produto {valor['produto']}: {valor['preco']} \nQuantidade em estoque: {valor['quantidade_estoque']}")
+            break
+    else:
+        print("PRODUTO não existe no estoque!")
+
+
 def menu(estoque, movimentacoes, user, setor):
     
     while True: 
         acao = input(
+            "\n"
+            "Escolha a Ação:\n"
             "1 - Registrar saída\n"
             "2 - Registrar entrada de produto\n"
             "3 - Verificar preço de um produto\n"
@@ -195,6 +207,9 @@ def menu(estoque, movimentacoes, user, setor):
             mostrar_estoque_total(estoque)
             mostrar_movimentacoes(movimentacoes)
         
+        if acao == "3":
+            verificar_preco(estoque)
+        
         if acao == "4":
             break
 
@@ -209,6 +224,7 @@ def main():
             if users["senha"] == senha:
                 setor = str(
                     input(
+                        "\n"
                         "Selecione o setor do funcionário:\n"
                         "1 - Estoque / Almoxarifado\n"
                         "2 - Compras / Suprimentos\n"
