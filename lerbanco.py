@@ -7,6 +7,6 @@ def ler_banco():
         dados = json.load(arquivo)
         return dados
 
-def salvar_banco(dados):
-    with open(path, "w", encoding="utf-8") as arquivo:
-        json.dump(dados, arquivo, indent=4, ensure_ascii=False)
+# def salvar_banco(dados):
+#     with open(path, "w", encoding="utf-8") as arquivo:
+#         json.dump(dados, arquivo, indent=4, ensure_ascii=False)
