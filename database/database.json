@@ -39,7 +39,7 @@
     "estoque": {
         "MTR1": {
             "produto": "motor",
-            "quantidade_estoque": 10,
+            "quantidade_estoque": 13,
             "preco": 2000.0,
             "tamanho": "60cm",
             "classificacao": "G",
@@ -1734,6 +1734,16 @@
             "entrada": "2025-01-16",
             "saida": "",
             "funcionario": ""
+        },
+        "MOV3": {
+            "codigo_produto": "MTR1",
+            "produto": "motor",
+            "quantidade": 3,
+            "preco": 2000.0,
+            "total": 6000.0,
+            "entrada": "2026-03-21",
+            "saida": null,
+            "funcionario": "lucassilva"
         }
     }
 }
