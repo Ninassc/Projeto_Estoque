@@ -1,4 +1,4 @@
-from main_func import main
+from funcoes.main_func import main
 
 if __name__ == "__main__":
     main()

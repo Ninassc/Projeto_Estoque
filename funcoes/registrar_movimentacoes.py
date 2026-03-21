@@ -1,4 +1,4 @@
-from funcoes_database import calcular_preco_total
+from funcoes.funcoes_database import calcular_preco_total
 
 def registrar_movimentacoes(
     movimentacoes, codigo_produto, produto, quantidade, preco, user, entrada, saida

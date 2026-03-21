@@ -1,7 +1,7 @@
 from datetime import datetime
-from funcoes_database import classificar
-from lerbanco import salvar
-from registrar_movimentacoes import registrar_movimentacoes
+from funcoes.funcoes_database import classificar
+from funcoes.lerbanco import salvar
+from funcoes.registrar_movimentacoes import registrar_movimentacoes
 
 def cadastrar_estoque(estoque, movimentacoes, setor, user):
     if setor == "1" or setor == "2" or setor == "9":

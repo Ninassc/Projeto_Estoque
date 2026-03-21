@@ -1,7 +1,7 @@
-from menu import menu
+from funcoes.menu import menu
 
-from funcoes_database import calcular_preco_total, classificar
-from lerbanco import ler_banco
+from funcoes.funcoes_database import calcular_preco_total, classificar
+from funcoes.lerbanco import ler_banco
 
 dados_banco = ler_banco()
 estoque = dados_banco.get("estoque", {})

@@ -1,7 +1,7 @@
 from datetime import datetime
-from lerbanco import salvar
-from registrar_movimentacoes import registrar_movimentacoes
-from cadastrar_estoque import cadastrar_estoque
+from funcoes.lerbanco import salvar
+from funcoes.registrar_movimentacoes import registrar_movimentacoes
+from funcoes.cadastrar_estoque import cadastrar_estoque
 
 def registrar_entrada(estoque, movimentacoes, user, setor):
     produto = input("CÓDIGO/PRODUTO: ").strip()

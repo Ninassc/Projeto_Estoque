@@ -1,6 +1,6 @@
 from datetime import datetime
-from lerbanco import salvar
-from registrar_movimentacoes import registrar_movimentacoes
+from funcoes.lerbanco import salvar
+from funcoes.registrar_movimentacoes import registrar_movimentacoes
 
 def registrar_saida(estoque, movimentacoes, user, setor):
     produto = input("CÓDIGO/PRODUTO: ")

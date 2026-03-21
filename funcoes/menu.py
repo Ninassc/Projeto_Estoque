@@ -1,8 +1,8 @@
-from registrar_saida import registrar_saida
-from registrar_entrada import registrar_entrada
-from mostrar_estoque_total import mostrar_estoque_total
-from mostrar_movimentacoes import mostrar_movimentacoes
-from verificar_preco import verificar_preco
+from funcoes.registrar_saida import registrar_saida
+from funcoes.registrar_entrada import registrar_entrada
+from funcoes.mostrar_estoque_total import mostrar_estoque_total
+from funcoes.mostrar_movimentacoes import mostrar_movimentacoes
+from funcoes.verificar_preco import verificar_preco
 
 def menu(estoque, movimentacoes, user, setor):
     
